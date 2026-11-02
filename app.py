@@ -30,7 +30,7 @@ h1, h2, h3 {
 
 st.title("🛡️ SALAMA AI")
 st.subheader("Protection et bien-être psychosocial")
-st.info("Prototype de démonstration — données entièrement fictives.")
+st.info("SALAMA AI V4 — prototype de démonstration, données entièrement fictives.")
 
 st.sidebar.title("SALAMA AI")
 page = st.sidebar.radio(
@@ -96,7 +96,9 @@ elif page == "Simulation des besoins":
     if envoyer:
         st.session_state.simulations.append({"ville": ville, "besoin": besoin})
         st.success("Simulation enregistrée temporairement.")
-        st.info(orienter_besoin(besoin))
+        st.info(orienter_besoin(besoin, ville))
+
+    st.caption("Les orientations ne constituent pas une prise en charge professionnelle ni une vérification de services locaux.")
 
     st.subheader("Historique de la session")
     st.dataframe(
@@ -128,7 +130,7 @@ else:
     st.subheader("État du développement")
     st.write(
         """
-    Prototype expérimental utilisant Streamlit
+    Version V4 expérimentale utilisant Streamlit
     et Pandas. Les fonctionnalités avancées
     d'intelligence artificielle, la gestion
     sécurisée des dossiers et l'orientation
