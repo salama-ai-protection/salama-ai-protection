@@ -35,7 +35,7 @@ st.info("SALAMA AI V4 — prototype de démonstration, données entièrement fic
 st.sidebar.title("SALAMA AI")
 page = st.sidebar.radio(
     "Navigation",
-    ["Tableau de bord", "Simulation des besoins", "À propos"],
+    ["Tableau de bord", "Simulation des besoins", "Tutoriels", "À propos"],
 )
 
 donnees = [
@@ -112,6 +112,23 @@ elif page == "Simulation des besoins":
         "Ces simulations ne sont pas enregistrées "
         "dans une base de données permanente."
     )
+
+elif page == "Tutoriels":
+    st.header("Tutoriels SALAMA AI")
+    st.write("Découvrez le prototype à partir de situations fictives.")
+
+    st.subheader("1. Explorer le tableau de bord")
+    st.write(
+        "Dans le tableau de bord, sélectionnez une ville, par exemple Kinshasa. "
+        "Comparez ensuite les indicateurs et la répartition des besoins."
+    )
+
+    st.subheader("2. Simuler un besoin")
+    st.write(
+        "Dans Simulation des besoins, choisissez une ville et une catégorie, "
+        "par exemple Bukavu et Protection, puis cliquez sur Simuler."
+    )
+
 
 else:
     st.header("À propos du projet")
