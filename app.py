@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import streamlit as st
 import pandas as pd
 
@@ -129,6 +131,13 @@ elif page == "Tutoriels":
         "par exemple Bukavu et Protection, puis cliquez sur Simuler."
     )
 
+    guide = Path(__file__).parent / "tutoriels" / "Guide_SALAMA_AI.pdf"
+    st.download_button(
+        "Télécharger le guide du prototype (PDF)",
+        data=guide.read_bytes(),
+        file_name=guide.name,
+        mime="application/pdf",
+    )
 
 else:
     st.header("À propos du projet")
