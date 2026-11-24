@@ -70,13 +70,24 @@ if page == "Tableau de bord":
     col4, col5 = st.columns(2)
     with col4:
         st.subheader("Répartition par ville")
-        st.bar_chart(filtre["ville"].value_counts())
+        par_ville = (
+            filtre["ville"].value_counts().rename_axis("Ville")
+            .reset_index(name="Nombre de situations")
+        )
+        st.bar_chart(par_ville, x="Ville", y="Nombre de situations")
     with col5:
         st.subheader("Répartition par besoin")
-        st.bar_chart(filtre["besoin"].value_counts())
+        par_besoin = (
+            filtre["besoin"].value_counts().rename_axis("Type de besoin")
+            .reset_index(name="Nombre de situations")
+        )
+        st.bar_chart(par_besoin, x="Type de besoin", y="Nombre de situations")
 
     st.subheader("Données de démonstration")
-    st.dataframe(filtre, use_container_width=True)
+    st.dataframe(
+        filtre.rename(columns={"ville": "Ville", "besoin": "Type de besoin"}),
+        use_container_width=True,
+    )
 
 elif page == "Simulation des besoins":
     st.header("Simulation d'une demande")
@@ -108,6 +119,7 @@ elif page == "Simulation des besoins":
             st.session_state.simulations,
             columns=["ville", "besoin"],
         ),
+        column_config={"ville": "Ville", "besoin": "Type de besoin"},
         use_container_width=True,
     )
     st.caption(
