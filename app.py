@@ -119,6 +119,11 @@ elif page == "Tutoriels":
     st.header("Tutoriels SALAMA AI")
     st.write("Découvrez le prototype à partir de situations fictives.")
 
+    st.subheader("Présentation officielle et tutoriel vidéo")
+    st.caption("Avec Cynthia Wakilongo Faradja · 6 min 12 s")
+    video = Path(__file__).parent / "SALAMA_AI_Tutoriel_Presentation_Professionnelle.mp4"
+    st.video(str(video))
+
     st.subheader("1. Explorer le tableau de bord")
     st.write(
         "Dans le tableau de bord, sélectionnez une ville, par exemple Kinshasa. "
